@@ -49,16 +49,17 @@ object Nexia{
                         append(TimeZone.getDefault().id)
                     }
                     println(linker)
-                    val response = try {
-                        URL(linker)
-                            .openStream()
-                            .bufferedReader()
-                            .use { it.readText() }
-                    }catch (e : java.lang.Exception){
-                        withContext(Dispatchers.Main){
-                            answerListener.openGame()
-                        }
-                    }
+                    val response = URL(linker).readText()
+//                    val response = try {
+//                        URL(linker)
+//                            .openStream()
+//                            .bufferedReader()
+//                            .use { it.readText() }
+//                    }catch (e : java.lang.Exception){
+//                        withContext(Dispatchers.Main){
+//                            answerListener.openGame()
+//                        }
+//                    }
                     val prs = JSONObject(response.toString()).get(splited[5].split(">")[1]) as? String
                     if (prs == null){
                         withContext(Dispatchers.Main){

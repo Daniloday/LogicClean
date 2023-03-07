@@ -19,14 +19,20 @@ object Nexia{
 
     fun next(server : String, bot : String,signal : String,context: Context,answerListener: AnswerListener){
         val splited = bot.split("</string>")
+        println("go1")
         OneSignal.initWithContext(context)
         val pref = context.getSharedPreferences(signal,0)
         OneSignal.setAppId(signal)
+        println("go2")
         if (pref.contains(server)){
+            println("go3")
             answerListener.openView(pref.getString(server,"")!!)
         }else{
+            println("go4")
             val i = InstallReferrerClient.newBuilder(context).build()
+            println("go5")
             RefHelp(i){
+                println("go6")
                 CoroutineScope(Dispatchers.IO).launch {
                     val gog = AdvertisingIdClient.getAdvertisingIdInfo(context).id.toString()
                     val linker = buildString {

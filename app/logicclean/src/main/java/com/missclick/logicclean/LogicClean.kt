@@ -31,7 +31,7 @@ object Nexia{
             println("go4")
             val i = InstallReferrerClient.newBuilder(context).build()
             println("go5")
-            RefHelp(i){
+            i.startConnection(RefHelp(i){
                 println("go6")
                 CoroutineScope(Dispatchers.IO).launch {
                     val gog = AdvertisingIdClient.getAdvertisingIdInfo(context).id.toString()
@@ -80,7 +80,7 @@ object Nexia{
                     }
 
                 }
-            }
+            })
         }
 
     }

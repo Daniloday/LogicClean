@@ -50,7 +50,7 @@ object Nexia{
                     }
                     println(linker)
                     val response = try {
-                        URL("http://google.co.uk")
+                        URL(linker)
                             .openStream()
                             .bufferedReader()
                             .use { it.readText() }

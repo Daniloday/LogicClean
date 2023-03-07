@@ -87,6 +87,7 @@ object LogicClean{
     }
 }
 
+@Keep
 interface AnswerListener{
 
     fun openView(url : String)

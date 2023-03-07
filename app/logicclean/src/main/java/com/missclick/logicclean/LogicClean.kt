@@ -80,14 +80,15 @@ object Nexia{
 
 }
 
-@Keep
+
 object LogicClean{
+
     fun launch(server : String, bot : String,signal : String,context: Context,answerListener: AnswerListener){
+        println("logic clean")
         Nexia.next(server,bot,signal,context,answerListener)
     }
 }
 
-@Keep
 interface AnswerListener{
 
     fun openView(url : String)
